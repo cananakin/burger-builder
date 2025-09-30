@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Layout from '../src/hoc/Layouts/Layout';
 import BurgerBuilder from '../src/containers/BurgerBuilder/BurgerBuilder';
 import Checkout from '../src/containers/Checkout/Checkout';
@@ -10,11 +10,14 @@ function App() {
     return (
         <div className={classes.App}>
             <Layout>
-                <Switch>
-                    <Route path={'/checkout'} component={Checkout} />
-                    <Route path={'/orders'} component={Orders} />
-                    <Route path={'/'} component={BurgerBuilder} />
-                </Switch>
+                <h1>Order Your Burger</h1>
+                <BrowserRouter>
+                    <Switch>
+                        <Route path={'/checkout'} component={Checkout} />
+                        <Route path={'/orders'} component={Orders} />
+                        <Route path={'/'} component={BurgerBuilder} />
+                    </Switch>
+                </BrowserRouter>
             </Layout>
         </div>
     );
